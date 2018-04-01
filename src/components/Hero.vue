@@ -9,11 +9,11 @@
       class="hero__favorite"
       v-on:click="hero.isFavorite ? removeHeroFromFavorites() : addHeroToFavorites()"
     >
-      <star-icon
+      <StarIcon
         v-if="hero.isFavorite"
         fillColor="#FFEB7F"
       />
-      <star-outline-icon
+      <StarOutlineIcon
         v-else
         fillColor="#000"
       />
@@ -22,15 +22,15 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import StarOutlineIcon from 'vue-material-design-icons/star-outline';
 import StarIcon from 'vue-material-design-icons/star';
 
-Vue.component('star-outline-icon', StarOutlineIcon);
-Vue.component('star-icon', StarIcon);
-
 export default {
   name: 'Hero',
+  components: {
+    StarOutlineIcon,
+    StarIcon,
+  },
   props: {
     hero: {
       type: Object,

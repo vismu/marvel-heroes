@@ -3,7 +3,7 @@
     <div v-if="!heroes.length" class="heroes__empty">
       <h2>You have not favorite heroes yet...</h2>
     </div>
-    <hero
+    <Hero
       v-else
       v-on:update-favorites="onUpdateFavorites()"
       v-for="hero in heroes"
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Hero from '@/components/Hero';
 import store from '@/store';
-
-Vue.component('hero', Hero);
+import Hero from '@/components/Hero';
 
 export default {
   name: 'FavoriteHeroes',
+  components: {
+    Hero,
+  },
   data() {
     return {
       heroes: store.state.heroes.filter(({ isFavorite }) => isFavorite),

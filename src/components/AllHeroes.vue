@@ -1,19 +1,19 @@
 <template>
   <div class="heroes" v-on:scroll="handleScroll">
     <img v-if="isLoading" class="heroes__loader" src="../assets/loader.gif" />
-    <hero v-for="hero in heroes" :hero="hero" :key="hero.id" />
+    <Hero v-for="hero in heroes" :hero="hero" :key="hero.id" />
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import Hero from '@/components/Hero';
 import store from '@/store';
-
-Vue.component('hero', Hero);
+import Hero from '@/components/Hero';
 
 export default {
   name: 'AllHeroes',
+  components: {
+    Hero,
+  },
   data() {
     return {
       isLoading: false,
