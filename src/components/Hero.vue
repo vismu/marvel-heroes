@@ -63,6 +63,8 @@ export default {
 
   .hero__img {
     width: 30%;
+    min-width: 30%;
+    max-width: 30%;
     height: 100%;
   }
 
