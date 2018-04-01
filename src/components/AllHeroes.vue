@@ -30,7 +30,7 @@ export default {
       });
     },
     handleScroll({ target: { scrollHeight, clientHeight, scrollTop } }) {
-      if ((scrollHeight - clientHeight) / 1.5 < scrollTop && !this.isLoading) {
+      if ((scrollHeight - clientHeight - 6000) < scrollTop && !this.isLoading) {
         this.loadHeroes();
       }
       store.setAllHeroesScrollTop(scrollTop);
