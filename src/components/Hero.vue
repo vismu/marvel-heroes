@@ -54,7 +54,7 @@ export default {
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 250px;
+    min-height: 220px;
   }
 
   .hero + .hero {

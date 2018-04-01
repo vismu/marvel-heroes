@@ -1,5 +1,5 @@
 <template>
-  <div class="heroes">
+  <div class="heroes" v-on:scroll="handleScroll">
     <div v-if="!heroes.length" class="heroes__empty">
       <h2>You have not favorite heroes yet...</h2>
     </div>
@@ -31,6 +31,12 @@ export default {
     onUpdateFavorites() {
       this.heroes = store.state.heroes.filter(({ isFavorite }) => isFavorite);
     },
+    handleScroll({ target: { scrollTop } }) {
+      store.setFavoriteHeroesScrollTop(scrollTop);
+    },
+  },
+  mounted() {
+    this.$el.scrollTop = store.state.favoriteHeroesScrollTop;
   },
 };
 </script>

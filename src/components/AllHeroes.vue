@@ -29,17 +29,19 @@ export default {
         this.heroes = store.state.heroes;
       });
     },
-    handleScroll({ target: { scrollHeight, clientHeight, scrollTop }}) {
-      if ((scrollHeight - clientHeight) === scrollTop) {
+    handleScroll({ target: { scrollHeight, clientHeight, scrollTop } }) {
+      if ((scrollHeight - clientHeight) / 1.5 < scrollTop && !this.isLoading) {
         this.loadHeroes();
       }
-    }
+      store.setAllHeroesScrollTop(scrollTop);
+    },
   },
-
   mounted() {
     if (!this.heroes.length) {
       this.loadHeroes();
     }
+
+    this.$el.scrollTop = store.state.allHeroesScrollTop;
   },
 };
 </script>
@@ -58,6 +60,7 @@ export default {
     right: 0;
     margin: 100px auto;
     z-index: 1;
+    pointer-events: none;
   }
 </style>
 
