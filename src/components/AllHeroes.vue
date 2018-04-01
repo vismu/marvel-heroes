@@ -1,7 +1,7 @@
 <template>
-  <div class="heroes">
+  <div class="heroes" v-on:scroll="handleScroll">
     <img v-if="isLoading" class="heroes__loader" src="../assets/loader.gif" />
-    <hero v-else v-for="hero in heroes" v-bind:hero="hero" :key="hero.id" />
+    <hero v-for="hero in heroes" v-bind:hero="hero" :key="hero.id" />
   </div>
 </template>
 
@@ -29,6 +29,11 @@ export default {
         this.heroes = store.state.heroes;
       });
     },
+    handleScroll({ target: { scrollHeight, clientHeight, scrollTop }}) {
+      if ((scrollHeight - clientHeight) === scrollTop) {
+        this.loadHeroes();
+      }
+    }
   },
 
   mounted() {
@@ -48,8 +53,11 @@ export default {
   }
 
   .heroes__loader {
+    position: absolute;
+    left: 0;
+    right: 0;
     margin: 100px auto;
-    height: 50%;
+    z-index: 1;
   }
 </style>
 
