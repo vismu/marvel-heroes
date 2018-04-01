@@ -5,9 +5,9 @@
     <h2>{{ appeal }}</h2>
     <ul>
       <li v-for="link in links" :key="link.id">
-        <a v-bind:href="link.href">
+        <router-link :to="link.href">
           {{ link.text }}
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
