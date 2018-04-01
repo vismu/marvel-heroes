@@ -16,7 +16,7 @@ const parseHeroes = response =>
   response.data.results.map(
     ({ id, name, description, thumbnail }) => ({
       id,
-      name,
+      name: name || 'Name is missing',
       description: description || 'Description is missing.',
       img: `${thumbnail.path}.${thumbnail.extension}`,
       isFavourite: false,
