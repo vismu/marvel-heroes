@@ -1,16 +1,21 @@
 <template>
     <div class="heroes">
         <img v-if="isLoading" class="heroes__loader" src="../assets/loader.gif" />
-        <div v-else class="hero" v-for="hero in heroes" :key="hero.id">
-            <img class="hero__img" v-bind:src="hero.img" />
-            {{ hero.name }}
-        </div>
+        <hero v-else v-for="hero in heroes" v-bind:hero="hero" :key="hero.id" />
     </div>
 </template>
 
 
 <script>
+import Vue from 'vue';
+import StarOutlineIcon from 'vue-material-design-icons/star-outline';
+import StarIcon from 'vue-material-design-icons/star';
+import Hero from '@/components/Hero';
 import store from '@/store';
+ 
+Vue.component('star-outline-icon', StarOutlineIcon);
+Vue.component('star-icon', StarIcon);
+Vue.component('hero', Hero);
 
 export default {
   name: 'AllHeroes',
@@ -21,17 +26,25 @@ export default {
     };
   },
 
+  methods: {
+      loadHeroes() {
+        this.isLoading = true;
+        store.loadHeroes().then(() => {
+            this.isLoading = false;
+            this.heroes = store.state.heroes;
+        });
+      }
+  },
+
   mounted() {
-    this.isLoading = true;
-    store.loadHeroes().then(() => {
-        this.isLoading = false;
-        this.heroes = store.state.heroes;
-    });
+    if (!this.heroes.length) {
+        this.loadHeroes();
+    }
   },
 };
 </script>
 
-<style scoped>
+<style>
     .heroes {
         width: 100%;
         height: 100%;
@@ -42,21 +55,6 @@ export default {
     .heroes__loader {
         margin: 100px auto;
         height: 50%;
-    }
-
-    .hero {
-        position: relative;
-        display: flex;
-        width: 100%;
-    }
-
-    .hero + .hero {
-        padding-top: 20px;
-    }
-
-    .hero__img {
-        width: 30%;
-        height: 100%;
     }
 </style>
 

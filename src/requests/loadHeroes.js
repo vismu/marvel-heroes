@@ -17,8 +17,9 @@ const parseHeroes = response =>
     ({ id, name, description, thumbnail }) => ({
       id,
       name,
-      description,
+      description: description || 'Description is missing.',
       img: `${thumbnail.path}.${thumbnail.extension}`,
+      isFavourite: false,
     }),
   );
 
