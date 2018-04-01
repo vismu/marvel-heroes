@@ -42,17 +42,20 @@ export default {
 </script>
 
 <style>
-html,
-body {
+html, body {
   position: relative;
   height: 100%;
   width: 100%;
   padding: 0px;
   margin: 0px;
 }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 #app {
   height: 100%;
-  min-width: 540px;
+  min-width: 600px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -62,13 +65,14 @@ body {
 
 .header {
   width: 100%;
-  height: 60px;
+  height: 100px;
   padding: 20px 28px;
   text-align: left;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
 }
 
 .content {
-  height: calc(100% - 60px);
+  height: calc(100% - 100px);
 }
 
 .logo {
@@ -91,6 +95,7 @@ a {
   font-weight: bold;
   color: #000;
   transition: color 0.3s;
+  outline: none;
 }
 
 a:hover {
