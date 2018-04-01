@@ -7,13 +7,9 @@
 
 <script>
 import Vue from 'vue';
-import StarOutlineIcon from 'vue-material-design-icons/star-outline';
-import StarIcon from 'vue-material-design-icons/star';
 import Hero from '@/components/Hero';
 import store from '@/store';
 
-Vue.component('star-outline-icon', StarOutlineIcon);
-Vue.component('star-icon', StarIcon);
 Vue.component('hero', Hero);
 
 export default {

@@ -22,6 +22,13 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import StarOutlineIcon from 'vue-material-design-icons/star-outline';
+import StarIcon from 'vue-material-design-icons/star';
+
+Vue.component('star-outline-icon', StarOutlineIcon);
+Vue.component('star-icon', StarIcon);
+
 export default {
   name: 'Hero',
   data() {
@@ -45,6 +52,7 @@ export default {
     position: relative;
     display: flex;
     width: 100%;
+    min-height: 250px;
   }
 
   .hero + .hero {
