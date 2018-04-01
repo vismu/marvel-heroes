@@ -1,0 +1,50 @@
+<template>
+  <div class="heroes">
+    <div v-if="!heroes.length" class="heroes__empty">
+      <h2>You have not favorite heroes yet...</h2>
+    </div>
+    <hero
+      v-else
+      v-on:update-favorites="onUpdateFavorites()"
+      v-for="hero in heroes"
+      v-bind:hero="hero"
+      :key="hero.id"
+    />
+  </div>
+</template>
+
+<script>
+import Vue from 'vue';
+import Hero from '@/components/Hero';
+import store from '@/store';
+
+Vue.component('hero', Hero);
+
+export default {
+  name: 'FavoriteHeroes',
+  data() {
+    return {
+      heroes: store.state.heroes.filter(({ isFavorite }) => isFavorite),
+    };
+  },
+  methods: {
+    onUpdateFavorites() {
+      this.heroes = store.state.heroes.filter(({ isFavorite }) => isFavorite);
+    },
+  },
+};
+</script>
+
+<style>
+  .heroes {
+    width: 100%;
+    height: 100%;
+    padding: 20px 28px;
+    overflow: auto;
+  }
+
+  .heroes__empty {
+    margin: 100px auto;
+  }
+</style>
+

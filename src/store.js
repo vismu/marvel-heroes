@@ -3,7 +3,6 @@ import loadHeroes from '@/requests/loadHeroes';
 export default {
   state: {
     heroes: [],
-    favouriteHeroes: [],
   },
   loadHeroes() {
     return loadHeroes().then((heroes) => {

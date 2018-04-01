@@ -6,11 +6,11 @@
       <h2>{{ hero.description }}</h2>
     </div>
     <button
-      class="hero__favourite"
-      v-on:click="hero.isFavourite ? removeHeroFromFavourites() : addHeroToFavourites()"
+      class="hero__favorite"
+      v-on:click="hero.isFavorite ? removeHeroFromFavorites() : addHeroToFavorites()"
     >
       <star-icon
-        v-if="hero.isFavourite"
+        v-if="hero.isFavorite"
         fillColor="#FFEB7F"
       />
       <star-outline-icon
@@ -37,11 +37,13 @@ export default {
     };
   },
   methods: {
-    addHeroToFavourites() {
-      this.hero.isFavourite = true;
+    addHeroToFavorites() {
+      this.hero.isFavorite = true;
+      this.$emit('update-favorites');
     },
-    removeHeroFromFavourites() {
-      this.hero.isFavourite = false;
+    removeHeroFromFavorites() {
+      this.hero.isFavorite = false;
+      this.$emit('update-favorites');
     },
   },
 };
@@ -74,7 +76,7 @@ export default {
     margin-top: 0px;
   }
 
-  .hero__favourite {
+  .hero__favorite {
     position: absolute;
     right: 0px;
     cursor: pointer;
@@ -83,7 +85,7 @@ export default {
     background-color: #fff;
   }
 
-  .hero__favourite svg {
+  .hero__favorite svg {
     width: 40px;
     height: 40px;
   }

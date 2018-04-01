@@ -32,8 +32,8 @@ export default {
         },
         {
           id: 1,
-          href: './favourite_heroes',
-          text: 'Favourite Heroes',
+          href: './favorite_heroes',
+          text: 'Favorite Heroes',
         },
       ],
     };

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Welcome from '@/components/Welcome';
 import AllHeroes from '@/components/AllHeroes';
-import FavouriteHeroes from '@/components/FavouriteHeroes';
+import FavoriteHeroes from '@/components/FavoriteHeroes';
 
 Vue.use(Router);
 
@@ -15,9 +15,9 @@ export default new Router({
       component: AllHeroes,
     },
     {
-      path: '/favourite_heroes',
-      name: 'FavouriteHeroes',
-      component: FavouriteHeroes,
+      path: '/favorite_heroes',
+      name: 'FavoriteHeroes',
+      component: FavoriteHeroes,
     },
     {
       path: '/',

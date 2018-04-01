@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       title: 'Welcome to my Vue.js App',
-      description: 'This App allows you to see at the all marvel heroes and choose your favourite ones',
+      description: 'This App allows you to see at the all marvel heroes and choose your favorite ones',
       appeal: 'Let\'s try it!',
     };
   },

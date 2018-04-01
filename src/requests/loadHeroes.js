@@ -19,7 +19,7 @@ const parseHeroes = response =>
       name: name || 'Name is missing',
       description: description || 'Description is missing.',
       img: `${thumbnail.path}.${thumbnail.extension}`,
-      isFavourite: false,
+      isFavorite: false,
     }),
   );
 
