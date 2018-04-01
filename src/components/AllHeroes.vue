@@ -1,7 +1,7 @@
 <template>
   <div class="heroes" v-on:scroll="handleScroll">
     <img v-if="isLoading" class="heroes__loader" src="../assets/loader.gif" />
-    <hero v-for="hero in heroes" v-bind:hero="hero" :key="hero.id" />
+    <hero v-for="hero in heroes" :hero="hero" :key="hero.id" />
   </div>
 </template>
 

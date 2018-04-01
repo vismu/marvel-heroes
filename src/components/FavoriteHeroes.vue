@@ -7,7 +7,7 @@
       v-else
       v-on:update-favorites="onUpdateFavorites()"
       v-for="hero in heroes"
-      v-bind:hero="hero"
+      :hero="hero"
       :key="hero.id"
     />
   </div>

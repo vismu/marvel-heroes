@@ -31,10 +31,10 @@ Vue.component('star-icon', StarIcon);
 
 export default {
   name: 'Hero',
-  data() {
-    return {
-      hero: this.$attrs.hero,
-    };
+  props: {
+    hero: {
+      type: Object,
+    },
   },
   methods: {
     addHeroToFavorites() {
