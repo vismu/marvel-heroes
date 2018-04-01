@@ -1,7 +1,7 @@
 <template>
     <div class="heroes">
         <img v-if="isLoading" class="heroes__loader" src="../assets/loader.gif" />
-        <div class="hero" v-for="hero in heroes" :key="hero.id">
+        <div v-else class="hero" v-for="hero in heroes" :key="hero.id">
             <img class="hero__img" v-bind:src="hero.img" />
             {{ hero.name }}
         </div>
@@ -10,21 +10,22 @@
 
 
 <script>
-import getAllHeroes from '@/methods/getAllHeroes';
+import store from '@/store';
 
 export default {
   name: 'AllHeroes',
   data() {
     return {
       isLoading: false,
-      heroes: [],
+      heroes: store.state.heroes,
     };
   },
+
   mounted() {
     this.isLoading = true;
-    getAllHeroes().then(heroes => {
+    store.loadHeroes().then(() => {
         this.isLoading = false;
-        this.heroes = this.heroes.concat(heroes);
+        this.heroes = store.state.heroes;
     });
   },
 };
