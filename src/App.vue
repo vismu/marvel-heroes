@@ -68,7 +68,7 @@ html, body {
   height: 100px;
   padding: 20px 28px;
   text-align: left;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid #000;
 }
 
 .content {

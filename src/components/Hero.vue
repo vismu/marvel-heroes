@@ -64,7 +64,6 @@ export default {
   .hero__img {
     width: 30%;
     height: 100%;
-    z-index: -1;
   }
 
   .hero__info {
